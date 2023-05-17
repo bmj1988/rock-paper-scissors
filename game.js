@@ -87,12 +87,13 @@ function promptInput(rl) {
     cmd = cmd.toLowerCase();
 
     if (cmd === "h") {
+      console.log("\nHelp:\n");
       printHelp();
     } else if (cmd === "q") {
       rl.close();
       return;
     } else if (VALID_MOVES[cmd]) {
-      getCPUMove();
+      const cpu = getCPUMove();
       getWinner(cmd, cpu);
     } else {
       console.log("\nInvalid command.\n");
